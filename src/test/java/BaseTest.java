@@ -15,6 +15,7 @@ public class BaseTest {
 //        driver = new EdgeDriver();
         driver.get("http://localhost:8080/");
         driver.manage().window().maximize();
+
     }
 
 

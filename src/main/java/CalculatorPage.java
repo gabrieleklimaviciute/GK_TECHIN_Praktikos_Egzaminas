@@ -26,6 +26,10 @@ public class CalculatorPage extends BasePage {
     @FindBy(xpath = "//h4[contains(text(), '= 0')]")
     private WebElement divisionResultWhenZero;
 
+    //Logout locators
+    @FindBy (css = "a[onclick]")
+    private WebElement logoutButton;
+
 
 
 
@@ -103,5 +107,8 @@ public class CalculatorPage extends BasePage {
     }
      public String getTextDivisionWithZero(){
         return divisionResultWhenZero.getText();
+     }
+     public void clickLogoutButton(){
+        logoutButton.click();
      }
 }

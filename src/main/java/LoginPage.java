@@ -19,6 +19,10 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = "//form[@action='/prisijungti']/div/span[2]")
     private WebElement loginErrorMessage;
 
+    //Logout locators
+     @FindBy(xpath = "/html//form[@action='/prisijungti']//span[.='Sėkmingai atsijungėte']")
+     private WebElement logoutMessage;
+
     public LoginPage(WebDriver driver) {
         super(driver);
     }
@@ -45,5 +49,8 @@ public class LoginPage extends BasePage {
     }
     public String getTextLoginErrorMessage(){
        return loginErrorMessage.getText();
+    }
+    public boolean isDisplayedLogoutMessage(){
+        return logoutMessage.isDisplayed();
     }
 }
