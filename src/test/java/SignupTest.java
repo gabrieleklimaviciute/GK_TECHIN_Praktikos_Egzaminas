@@ -10,7 +10,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class SignupTest extends BaseTest {
     Random random = new Random();
 
+
     @Test
+    @Tag("signUp")
     @Tag("signupPositiveTest")
     void signUpWithValidCredentials() {
         LoginPage loginPage = new LoginPage(driver);
@@ -28,6 +30,7 @@ public class SignupTest extends BaseTest {
     }
 
     @Test
+    @Tag("signUp")
     @Tag("signupNegativeTest")
     void usernameTooShort() {
         LoginPage loginPage = new LoginPage(driver);
@@ -45,6 +48,7 @@ public class SignupTest extends BaseTest {
     }
 
     @Test
+    @Tag("signUp")
     @Tag("signupNegativeTest")
     void usernameTooLong() {
         LoginPage loginPage = new LoginPage(driver);
@@ -62,6 +66,7 @@ public class SignupTest extends BaseTest {
     }
 
     @Test
+    @Tag("signUp")
     @Tag("signupNegativeTest")
     void emptyUsernameField() {
         LoginPage loginPage = new LoginPage(driver);
@@ -80,6 +85,7 @@ public class SignupTest extends BaseTest {
     }
 
     @Test
+    @Tag("signUp")
     @Tag("signupNegativeTest")
     void passwordTooShort() {
 
@@ -100,6 +106,7 @@ public class SignupTest extends BaseTest {
     }
 
     @Test
+    @Tag("signUp")
     @Tag("signupNegativeTest")
     void passwordFieldEmpty() {
         LoginPage loginPage = new LoginPage(driver);
@@ -119,6 +126,7 @@ public class SignupTest extends BaseTest {
         Assertions.assertEquals(expectedOutput, actualOutput, "Invalid password format");
     }
     @Test
+    @Tag("signUp")
     @Tag("signupNegativeTest")
     void passwordMismatch(){
         LoginPage loginPage = new LoginPage(driver);

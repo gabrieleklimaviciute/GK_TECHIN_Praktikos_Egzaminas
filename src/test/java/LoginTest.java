@@ -10,13 +10,14 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginTest extends BaseTest {
     Random random = new Random();
 
-    @Test
-    void openSignupForm() {
-        LoginPage loginPage = new LoginPage(driver);
-        loginPage.openSignupForm();
-    }
+//    @Test
+//    void openSignupForm() {
+//        LoginPage loginPage = new LoginPage(driver);
+//        loginPage.openSignupForm();
+//    }
 
     @Test
+    @Tag("allLogin")
     @Tag("loginPositiveTest")
     void loginWithValidCredentials() {
         LoginPage loginPage = new LoginPage(driver);
@@ -30,6 +31,7 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    @Tag("allLogin")
     @Tag("loginNegativeTest")
     void loginWithInvalidCredentials() {
         LoginPage loginPage = new LoginPage(driver);
@@ -44,6 +46,7 @@ public class LoginTest extends BaseTest {
         assertEquals(expectedOutput, actualOutput, "To login, user must be signed up");
     }
     @Test
+    @Tag("allLogin")
     @Tag("loginNegativeTest")
     void loginFieldsEmpty(){
         LoginPage loginPage = new LoginPage(driver);

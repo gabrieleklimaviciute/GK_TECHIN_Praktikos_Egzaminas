@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 public class CalculatorTest extends BaseTest {
     //SUM TESTS
     @Test
+    @Tag("sumTests")
     @Tag("sumPositiveTest")
     void sumOfTwoNumbers() {
         LoginPage loginPage = new LoginPage(driver);
@@ -27,6 +28,7 @@ public class CalculatorTest extends BaseTest {
     }
 
     @Test
+    @Tag("sumTests")
     @Tag("sumNegativeTest")
     void sumWhenOneOfTwoNumbersNegative() {
         LoginPage loginPage = new LoginPage(driver);
@@ -46,6 +48,7 @@ public class CalculatorTest extends BaseTest {
     }
     //SUBTRACTION TESTS
     @Test
+    @Tag("subtractionTests")
     @Tag("subtractionPositiveTest")
     void subtractTwoPositiveNumbers(){
         LoginPage loginPage = new LoginPage(driver);
@@ -65,6 +68,7 @@ public class CalculatorTest extends BaseTest {
         Assertions.assertEquals(expectedOutput, actualOutput, "Calculation unsuccessful");
     }
     @Test
+    @Tag("subtractionTests")
     @Tag("subtractionNegativeTest")
     void subtractionWithEmptyNumberFields(){
         LoginPage loginPage = new LoginPage(driver);
@@ -87,6 +91,7 @@ public class CalculatorTest extends BaseTest {
     }
     //MULTIPLICATION TESTS
      @Test
+     @Tag("multiplicationTests")
      @Tag("multiplicationPositiveTest")
     void multiplicationOfTwoPositiveNumbers(){
          LoginPage loginPage = new LoginPage(driver);
@@ -106,6 +111,7 @@ public class CalculatorTest extends BaseTest {
          Assertions.assertEquals(expectedOutput,actualOutput, "Unsuccessful calculation");
      }
      @Test
+     @Tag("multiplicationTests")
      @Tag("multiplicationPositiveTest")
     void multiplicationWhenOneNumberIsZero(){
          LoginPage loginPage = new LoginPage(driver);
@@ -126,6 +132,7 @@ public class CalculatorTest extends BaseTest {
      }
      //DIVISION TESTS
     @Test
+    @Tag("divisionTests")
     @Tag("divisionPositiveTest")
     void divisionWithPositiveNumbers(){
         LoginPage loginPage = new LoginPage(driver);
@@ -145,6 +152,7 @@ public class CalculatorTest extends BaseTest {
         Assertions.assertEquals(expectedOutput,actualOutput,"Unsuccessful calculation");
     }
     @Test
+    @Tag("divisionTests")
     @Tag("divisionPositiveTest")
     void divisionWhenOneNumberIsZero(){
         LoginPage loginPage = new LoginPage(driver);
