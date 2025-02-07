@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 public class LoginPage extends BasePage {
     @FindBy(xpath = "//a[contains(text(),'Sukurti naują paskyrą')]")
     private WebElement createNewAccountButton;
-    //    @FindBy(id = "number2")
+//        @FindBy(id = "number2")
 //    private WebElement secondNumberField;
 //    @FindBy(id = "calculate")
 //    private WebElement calculationButton;
@@ -50,7 +50,7 @@ public class LoginPage extends BasePage {
     public String getTextLoginErrorMessage(){
        return loginErrorMessage.getText();
     }
-    public boolean isDisplayedLogoutMessage(){
-        return logoutMessage.isDisplayed();
+    public String getTextLogoutMessage(){
+       return logoutMessage.getText();
     }
 }

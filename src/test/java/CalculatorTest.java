@@ -20,7 +20,7 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.sendKeysToSecondNumberField("3");
         calculatorPage.setSumOperatorSign("Sudėtis");
         calculatorPage.clickCalculationButton();
-
+        //Assertion
         String expectedOutput = "7 + 3 = 10";
         String actualOutput = calculatorPage.getTextFromSumResult();
         Assertions.assertEquals(expectedOutput, actualOutput, "Calculation unsuccessful");
@@ -42,7 +42,7 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.sendKeysToSecondNumberField("3");
         calculatorPage.setSumOperatorSign("Sudėtis");
         calculatorPage.clickCalculationButton();
-
+        //Assertion
         boolean expectedOutput = calculatorPage.firstNumberErrorMessageIsDisplayed();
         Assertions.assertTrue(expectedOutput, "Numbers can not be negative");
     }
@@ -62,7 +62,7 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.sendKeysToSecondNumberField("3");
         calculatorPage.setSubtractionOperator("Atimtis");
         calculatorPage.clickCalculationButton();
-
+        //Assertion
         String expectedOutput = "7 - 3 = 4";
         String actualOutput = calculatorPage.getTextFromSubtractionResult();
         Assertions.assertEquals(expectedOutput, actualOutput, "Calculation unsuccessful");
@@ -82,7 +82,7 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.sendKeysToSecondNumberField("");
         calculatorPage.setSubtractionOperator("Atimtis");
         calculatorPage.clickCalculationButton();
-
+        //Assertion
         boolean expectedOutput = calculatorPage.firstNumberErrorMessageIsDisplayed();
         Assertions.assertTrue(expectedOutput, "Field can not be empty");
 
@@ -105,7 +105,7 @@ public class CalculatorTest extends BaseTest {
          calculatorPage.sendKeysToSecondNumberField("5");
          calculatorPage.setMultiplicationOperator("Daugyba");
          calculatorPage.clickCalculationButton();
-
+         //Assertion
          String expectedOutput = "5 * 5 = 25";
          String actualOutput = calculatorPage.getTextFromMultiplicationResult();
          Assertions.assertEquals(expectedOutput,actualOutput, "Unsuccessful calculation");
@@ -125,7 +125,7 @@ public class CalculatorTest extends BaseTest {
          calculatorPage.sendKeysToSecondNumberField("0");
          calculatorPage.setMultiplicationOperator("Daugyba");
          calculatorPage.clickCalculationButton();
-
+         //Assertion
          String expectedOutput = "5 * 0 = 0";
          String actualOutput = calculatorPage.getTextMultiplicationWithZero();
          Assertions.assertEquals(expectedOutput,actualOutput, "Unsuccessful calculation");
@@ -146,7 +146,7 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.sendKeysToSecondNumberField("4");
         calculatorPage.setDivisionOperator("Dalyba");
         calculatorPage.clickCalculationButton();
-
+        //Assertion
         String expectedOutput = "12 / 4 = 3";
         String actualOutput = calculatorPage.getTextFromDivisionResult();
         Assertions.assertEquals(expectedOutput,actualOutput,"Unsuccessful calculation");
@@ -166,9 +166,24 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.sendKeysToSecondNumberField("9");
         calculatorPage.setDivisionOperator("Dalyba");
         calculatorPage.clickCalculationButton();
-
+        //Assertion
         String expectedOutput = "0 / 9 = 0";
         String actualOutput = calculatorPage.getTextDivisionWithZero();
         Assertions.assertEquals(expectedOutput,actualOutput, "Unsuccessful calculation");
     }
+
+    @Test
+    @Tag("openSearchPage")
+    void openSearchPage(){
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.enterUsernameIntoField("user123");
+        loginPage.enterPasswordIntoField("user123");
+        loginPage.clickLoginButton();
+
+        CalculatorPage calculatorPage = new CalculatorPage(driver);
+        calculatorPage.clickDoneOperationsButton();
+
+
+    }
+
 }

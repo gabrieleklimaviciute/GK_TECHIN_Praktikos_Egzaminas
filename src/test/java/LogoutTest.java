@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.TimeUnit;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LogoutTest extends BaseTest{
@@ -18,7 +19,9 @@ public class LogoutTest extends BaseTest{
         calculatorPage.clickLogoutButton();
 
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        Boolean expectedOutput = loginPage.isDisplayedLogoutMessage();
-        assertTrue(expectedOutput,"User is not logged out");
+        //Assertion
+        String expectedOutput = "Sėkmingai atsijungėte";
+        String actualOutput = loginPage.getTextLogoutMessage();
+        assertEquals(expectedOutput,actualOutput,"User is not logged out!");
     }
 }

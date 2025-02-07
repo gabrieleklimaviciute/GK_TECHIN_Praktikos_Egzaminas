@@ -10,12 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class LoginTest extends BaseTest {
     Random random = new Random();
 
-//    @Test
-//    void openSignupForm() {
-//        LoginPage loginPage = new LoginPage(driver);
-//        loginPage.openSignupForm();
-//    }
-
     @Test
     @Tag("allLogin")
     @Tag("loginPositiveTest")
@@ -33,7 +27,8 @@ public class LoginTest extends BaseTest {
     @Test
     @Tag("allLogin")
     @Tag("loginNegativeTest")
-    void loginWithInvalidCredentials() {
+    void loginWithInvalidUsername() {
+        //Username is not registered in the system()
         LoginPage loginPage = new LoginPage(driver);
         String username = "user" + random.nextInt(1000);
 
@@ -59,4 +54,19 @@ public class LoginTest extends BaseTest {
         String actualOutput = loginPage.getTextLoginErrorMessage();
         assertEquals(expectedOutput, actualOutput, "To login, all fields must be filled up");
     }
+    @Test
+    @Tag("allLogin")
+    @Tag("loginNegativeTest")
+    void loginWithInvalidPassword(){
+        LoginPage loginPage = new LoginPage(driver);
+
+        loginPage.enterUsernameIntoField("user123");
+        loginPage.enterPasswordIntoField("user" + random.nextInt(1000));
+        loginPage.clickLoginButton();
+        //Assertion
+        String expectedOutput = "Įvestas prisijungimo vardas ir/ arba slaptažodis yra neteisingi";
+        String actualOutput = loginPage.getTextLoginErrorMessage();
+        assertEquals(expectedOutput, actualOutput, "To login, all fields must be filled up");
+    }
+
 }

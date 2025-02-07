@@ -25,6 +25,9 @@ public class CalculatorPage extends BasePage {
     private WebElement divisionResult;
     @FindBy(xpath = "//h4[contains(text(), '= 0')]")
     private WebElement divisionResultWhenZero;
+    //Locator for "done operations" opening
+    @FindBy(xpath = "//a[@href='/skaiciai']")
+    private WebElement doneOperationsSearchButton;
 
     //Logout locators
     @FindBy (css = "a[onclick]")
@@ -110,5 +113,8 @@ public class CalculatorPage extends BasePage {
      }
      public void clickLogoutButton(){
         logoutButton.click();
+     }
+     public void clickDoneOperationsButton(){
+        doneOperationsSearchButton.click();
      }
 }

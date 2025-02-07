@@ -24,7 +24,7 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("user123");
         signupPage.sendKeysPasswordConfirmationField("user123");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
         assertTrue(signupPage.successfulSignupAssert(username), "User not logged in");
     }
@@ -41,7 +41,7 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("user123");
         signupPage.sendKeysPasswordConfirmationField("user123");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         String expectedOutput = "Privaloma įvesti nuo 3 iki 32 simbolių";
         String actualOutput = signupPage.getTextFromUsernameError();
         Assertions.assertEquals(expectedOutput, actualOutput, "Invalid username format");
@@ -59,7 +59,7 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("user123");
         signupPage.sendKeysPasswordConfirmationField("user123");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         String expectedOutput = "Privaloma įvesti nuo 3 iki 32 simbolių";
         String actualOutput = signupPage.getTextFromUsernameError();
         Assertions.assertEquals(expectedOutput, actualOutput, "Invalid username format");
@@ -77,7 +77,7 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("user123");
         signupPage.sendKeysPasswordConfirmationField("user123");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         String expectedOutput = "Šį laukelį būtina užpildyti\n" +
                 "Privaloma įvesti nuo 3 iki 32 simbolių";
         String actualOutput = signupPage.getTextFromUsernameError();
@@ -98,7 +98,7 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("aa");
         signupPage.sendKeysPasswordConfirmationField("aa");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         String expectedOutput = "Privaloma įvesti bent 3 simbolius";
         String actualOutput = signupPage.getTextPasswordError();
         Assertions.assertEquals(expectedOutput, actualOutput, "Invalid password format");
@@ -118,17 +118,18 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("");
         signupPage.sendKeysPasswordConfirmationField("");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         String expectedOutput = "Šį laukelį būtina užpildyti\n" +
                 "Privaloma įvesti bent 3 simbolius";
 
         String actualOutput = signupPage.getTextPasswordError();
         Assertions.assertEquals(expectedOutput, actualOutput, "Invalid password format");
     }
+
     @Test
     @Tag("signUp")
     @Tag("signupNegativeTest")
-    void passwordMismatch(){
+    void passwordMismatch() {
         LoginPage loginPage = new LoginPage(driver);
         loginPage.openSignupForm();
         String username = "user" + random.nextInt(1000);
@@ -138,7 +139,7 @@ public class SignupTest extends BaseTest {
         signupPage.sendKeysPasswordField("user123");
         signupPage.sendKeysPasswordConfirmationField("user12");
         signupPage.clickSignupConfirmationButton();
-
+        //Assertion
         String expectedOutput = "Įvesti slaptažodžiai nesutampa";
         String actualOutput = signupPage.getTextPasswordConfirmationError();
         Assertions.assertEquals(expectedOutput, actualOutput, "Password should match.");
